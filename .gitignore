@@ -1,0 +1,16 @@
+.env
+.DS_Store
+node_modules
+dist
+.cache
+.example
+deploy
+logs
+
+# For Heroku
+package-lock.json
+
+# Jest
+coverage
+
+*.pdf

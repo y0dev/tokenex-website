@@ -1,0 +1,40 @@
+doctype html
+html.scroll-pt-36.scroll-smooth
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description",content="Ecommerce Template")
+    meta(name="keywords",content="Ecommerce, Template, SaaS")
+    meta(name="author", content="Devontae Reid")
+    meta(property="og:title",content="Devontae's Ecommerce Template")
+    meta(property="og:description",content="Ecommerce Template")
+    meta(property="og:image",content="https://www.devsite.com/images/urban-insight.png")
+    meta(property="og:url", content="https://www.devsite.com")
+    meta(property="og:type", content="website")
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:title",content="Devontae's Ecommerce Template")
+    meta(name="twitter:description",content="Ecommerce Template")
+    meta(name="twitter:image",content="https://www.devsite.com/images/urban-insight.png")
+    meta(name="twitter:site", content="@urbaninsight")
+    meta(name="twitter:creator", content="@yourusername")
+    link(rel="shortcut icon",href="/img/favicon/favicon.ico",type="image/x-icon")
+    link(rel="stylesheet",href="https://fonts.googleapis.com/css?family=Lato:300,300i,700,900")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css",rel="stylesheet")
+    link(rel="stylesheet", href="/css/style.css")
+    title Dev's Ecommerce | #{ title }
+
+  body.bg-raisin-black.relative.text-white
+    main
+      // HEADER
+      include _header
+
+      // CONTENT
+      block content
+        h1 This is a placeholder heading
+
+      // FOOTER
+      include _footer
+
+    script(src="/js/bundle.js")

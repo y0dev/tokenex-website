@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.globe {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.globe-pixel {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(1turn);
+  }
+}

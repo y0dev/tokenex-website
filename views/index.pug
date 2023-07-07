@@ -1,0 +1,54 @@
+extends base
+
+block content
+    section#home.min-h-screen.flex.py-8.px-0.bg-left(class="md:px-7/100 md:items-center") 
+        .left-container.max-w-lg.mr-4  
+            p.uppercase.text-gray-400 What is tokenization?
+            h3.my-4.text-2xl.capitalize.font-semibold.text-white(class="md:text-4xl") the future of cyber security is here
+            .info-container.mt-8.ml-6.border-l.border-solid.border-gray
+                p.text-md.font-thin.pl-8.py-2 Digital transactions don't have to introduce risk, cost, and complexity. With TokenEx, you can reduce PCI scope, increase authorization rotes, and lower interchange fees to make your payments more profitable. 
+                .buttons.text-sm.uppercase.ml-8.mt-8
+                    a.mr-2.px-8.py-2.bg-amber(href="#") See More
+                    a.ml-2.px-8.py-2.bg-transparent.border-2.border-solid.border-white(href="#") Download Resources
+        .right-container.max-w-lg.ml-4.items-center 
+            .globe
+                each row in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    each col in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                        span.globe-pixel
+            
+    
+    section#platform.w-screen.py-8.px-0.bg-left(class="md:items-center")
+        .title.mb-8.ml-8 
+            h1.text-2xl.font-md.capitalize(class="sm:text-4xl") the future of cyber security is here
+        
+        .features.flex.flex-wrap.my-8.text-left.h-135(class="")
+            .px-8.flex.flex-col.justify-around.border(class="md:w-1/3")
+                .description
+                    h3.text-2xl.mb-8 Secure Data Collection 
+                    p TokenEx offers severol methods for collecting and tokenizing sensitive dota. Depending on your use case, you could use a combination of these services to ensure secure and compliant omnichannel acceptance. 
+                .image.relative.w-40.h-40.bg-black
+                    //- img(src="", alt="")
+                    i.bx.bx-badge-check.absolute.top-0.right-0.text-4xl
+                a(href="#") Read More > 
+
+            .px-8.flex.flex-col.justify-around.border(class="md:w-1/3")
+                .description
+                    h3.text-2xl.mb-8 Secure Data Transmission 
+                    p TokenEx offers flexible, customizable methods for transmitting sensitive data to third parties such as partners and payment service providers. Depending on your organization's needs, you could use a combination bockend technologies. 
+                .image.relative.w-40.h-40.bg-black
+                    //- img(src="", alt="")
+                    i.bx.bx-badge-check.absolute.top-0.right-0.text-4xl
+                a(href="#") Read More >
+
+            .px-8.flex.flex-col.justify-around.border(class="md:w-1/3")
+                .description
+                    h3.text-2xl.mb-8 Other Products & Integrations 
+                    p In addition to the services offered natively within the TokenEx platform, we also give our clients access to valuable third-party integrations. 
+                .image.relative.w-40.h-40.bg-black
+                    //- img(src="", alt="")
+                    i.bx.bx-badge-check.absolute.top-0.right-0.text-4xl
+                a(href="#") Read More >
+
+        
+
+    
