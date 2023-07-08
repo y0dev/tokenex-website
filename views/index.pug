@@ -1,7 +1,7 @@
 extends base
 
 block content
-    section#home.min-h-screen.flex.py-8.px-0.bg-left(class="md:px-7/100 md:items-center") 
+    section#home.min-h-screen.flex.justify-around.py-8.px-0.bg-left(class="md:px-7/100 md:items-center") 
         .left-container.max-w-lg.mr-4  
             p.uppercase.text-gray-400 What is tokenization?
             h3.my-4.text-2xl.capitalize.font-semibold.text-white(class="md:text-4xl") the future of cyber security is here
@@ -11,10 +11,10 @@ block content
                     a.mr-2.px-8.py-2.bg-amber(href="#") See More
                     a.ml-2.px-8.py-2.bg-transparent.border-2.border-solid.border-white(href="#") Download Resources
         .right-container.max-w-lg.ml-4.items-center 
-            .globe
-                each row in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                    each col in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-                        span.globe-pixel
+            .globe.w-100.relative(class="lg:w-135 xl:w-160")
+                img.fill-current.text-gray-500(src="/img/nueral.svg" alt="")
+                .circle.absolute.-z-10.w-full.h-full.top-0
+                    img.fill-current.text-gray-500(src="/img/sphere_pattern.svg" alt="")
             
     
     section#platform.w-screen.py-8.px-0.bg-left(class="md:items-center")
@@ -49,6 +49,79 @@ block content
                     i.bx.bx-badge-check.absolute.top-0.right-0.text-4xl
                 a(href="#") Read More >
 
-        
+    section#resources.w-screen.min-h-screen.relative.flex.flex-col
+        div.flex-1.flex.justify-around
+           h1.my-4.text-2xl.capitalize.font-thin.text-white(class="md:text-4xl xl:text-6xl") Your data. your business
+           p.max-w-xs(class="") Build your ideal customer experience with your desired combination of payment platforms and technologies
+        div.flex-1.bg-white
+        .box.absolute.z-10.top-60.inset-x-0.mx-auto.bg-black.h-72.w-80(class="md:w-220 md:h-135 xl:w-330")
 
+    
+    section#solutions.w-screen.min-h-screen.relative.flex.flex-col.justify-around.items-center.bg-white
+        div.flex.justify-around
+           h1.my-4.text-2xl.capitalize.font-thin.text-black(class="md:text-4xl xl:text-6xl") How our solutions can help you
+           p.max-w-xs(class="") Build your ideal customer experience with your desired combination of payment platforms and technologies
+        .card-container.flex.space-x-8
+            .card.relative.w-64.h-100.p-4.bg-raisin-black-100.shadow-md(class="hover:rotate-y-180")
+                .card-back.absolute.top-0.left-0.right-0.bottom-0.p-8.flex.justify-center.items-center
+                    .flex.flex-col.justify-around
+                        .description
+                            h3 Back Content
+
+                .card-front.absolute.top-0.left-0.right-0.bottom-0.p-8.flex.justify-center.items-center.bg-raisin-black-200
+                    .flex.flex-col.justify-around
+                        i.bx.bx-check-shield.text-5xl.mb-6
+                        .description.mb-8
+                            h3.text-2xl.mb-8 Accept 
+                            p.text-xs The people,processess, and technology within your organization that interact with or are exposed to payment card information are subject to the PCI DSS
+                        h3 Read More >
+
+            .card.relative.w-64.h-100.p-4.bg-raisin-black-100.shadow-md(class="hover:rotate-y-180")
+                .card-back.absolute.top-0.left-0.right-0.bottom-0.p-8.flex.justify-center.items-center
+                    .flex.flex-col.justify-around
+                        .description
+                            h3 Back Content
+
+                .card-front.absolute.top-0.left-0.right-0.bottom-0.p-8.flex.justify-center.items-center.bg-raisin-black-200
+                    .flex.flex-col.justify-around
+                        i.bx.bx-lock.text-5xl.mb-6
+                        .description.mb-8
+                            h3.text-2xl.mb-8 Secure 
+                            p.text-xs With the EU's General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA) leading the way for regulatory compliance regarding personal data and information privacy standards. 
+                        h3 Read More >
+
+            .card.relative.w-64.h-100.p-4.bg-raisin-black-100.shadow-md(class="hover:rotate-y-180")
+                .card-back.absolute.top-0.left-0.right-0.bottom-0.p-8.flex.justify-center.items-center
+                    .flex.flex-col.justify-around
+                        .description
+                            h3 Back Content
+
+                .card-front.absolute.top-0.left-0.right-0.bottom-0.p-8.flex.justify-center.items-center.bg-raisin-black-200
+                    .flex.flex-col.justify-around
+                        i.bx.bxs-bank.text-5xl.mb-6
+                        .description.mb-8
+                            h3.text-2xl.mb-8 Transact 
+                            p.text-xs Formed In 1974, the National Automated Clearing House (NACHA) regulates how automated clearing house (ACH) transactions should be performed and how ACH data should be safeguarded 
+                        h3 Read More >
+
+    section#about.w-screen.min-h-screen.relative.flex.flex-col.justify-around.items-center
+        .title.mb-8.ml-8 
+            h1.text-2xl.font-md.capitalize(class="sm:text-4xl") check out these case studies
+    
+    section#testimonies.w-screen.min-h-screen.relative.flex.flex-col.border-t
+        div.flex-1.flex.justify-around.my-8
+            h1.my-4.text-2xl.capitalize.font-thin.text-white(class="md:text-4xl xl:text-6xl") trusted by global companies
+            .button-container.my-4.flex.justify-center.space-x-4
+                button#back-button.flex.items-center.justify-center.w-12.h-12.border.border-white.rounded-md(class="hover:bg-gray-100 transition-colors focus:outline-none")
+                    i.bx.bx-left-arrow-alt
+                button#forward-button.flex.items-center.justify-center.w-12.h-12.border.border-white.rounded-md(class="hover:bg-gray-100 transition-colors focus:outline-none")
+                    i.bx.bx-right-arrow-alt
+        div.flex-1.bg-white
+        .box.flex.items-center.absolute.z-10.top-80.inset-x-0.mx-auto.bg-black.h-72.w-80(class="md:w-220 md:h-92 xl:w-330")
+            .img-container.w-80.h-full.bg-white
+                img(src="", alt="")
+
+            .testimony.flex.flex-col.justify-around.border-t
+                p.ml-8.my-8.text-white "By controlling our own tokens, it allows us the flexibility to be nimble. We can move to other processors if necessary. We can chase better revenue opportunities." 
+                p.ml-8.text-white Daniel Redhill, Chief Executive Officer
     

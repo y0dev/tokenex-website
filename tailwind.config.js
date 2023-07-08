@@ -19,7 +19,11 @@ module.exports = {
       secondary: "#ff7e33",
       info: "#0C63E7",
       black: colors.black,
-      "raisin-black": "#202124",
+      "raisin-black": {
+        100: "#2C212B",
+        200: "#202124",
+        300: "#1F2123",
+      },
       white: "#F5F5F5",
       slate: colors.slate,
       gray: {
@@ -167,6 +171,8 @@ module.exports = {
       135: "33.75rem",
       160: "40rem",
       180: "45rem",
+      200: "50rem",
+      220: "55rem",
       240: "60rem",
       285: "71.25rem",
       330: "82.5rem",
