@@ -7,7 +7,7 @@ block content
             h3.my-4.text-2xl.capitalize.font-semibold.text-white(class="md:text-4xl") the future of cyber security is here
             .info-container.mt-8.ml-6.border-l.border-solid.border-gray
                 p.text-md.font-thin.pl-8.py-2 Digital transactions don't have to introduce risk, cost, and complexity. With TokenEx, you can reduce PCI scope, increase authorization rotes, and lower interchange fees to make your payments more profitable. 
-                .buttons.text-sm.uppercase.ml-8.mt-8
+                .buttons-container.text-sm.uppercase.ml-8.mt-8
                     a.mr-2.px-8.py-2.bg-amber(href="#") See More
                     a.ml-2.px-8.py-2.bg-transparent.border-2.border-solid.border-white(href="#") Download Resources
         .right-container.max-w-lg.ml-4.items-center 
@@ -117,11 +117,24 @@ block content
                 button#forward-button.flex.items-center.justify-center.w-12.h-12.border.border-white.rounded-md(class="hover:bg-gray-100 transition-colors focus:outline-none")
                     i.bx.bx-right-arrow-alt
         div.flex-1.bg-white
-        .box.flex.items-center.absolute.z-10.top-80.inset-x-0.mx-auto.bg-black.h-72.w-80(class="md:w-220 md:h-92 xl:w-330")
-            .img-container.w-80.h-full.bg-white
-                img(src="", alt="")
+        .testimony-carousel.flex.justify-between.absolute.z-10.top-80.inset-x-0.mx-auto.space-x-12.h-72.w-80(class="md:w-220 md:h-92 xl:w-330")
+            .box.flex.items-center.bg-black
+                .img-container.w-80.h-full.bg-white
+                    img(src="", alt="")
 
-            .testimony.flex.flex-col.justify-around.border-t
-                p.ml-8.my-8.text-white "By controlling our own tokens, it allows us the flexibility to be nimble. We can move to other processors if necessary. We can chase better revenue opportunities." 
-                p.ml-8.text-white Daniel Redhill, Chief Executive Officer
+                .testimony.flex.flex-col.justify-around.py-12.px-20.border-t
+                    p.ml-8.my-8.text-white "By controlling our own tokens, it allows us the flexibility to be nimble. We can move to other processors if necessary. We can chase better revenue opportunities." 
+                    p.ml-8.text-white Daniel Redhill, Chief Executive Officer
+            
+            .box.flex.items-end.bg-black.h-72.w-20(class="md:h-92")
+                .img-container.w-full.h-10.mx-2.mb-2.bg-white
+
+    section#contact.w-screen.min-h-screen.relative.flex.flex-col.border-t
+        .title.mb-8.ml-8 
+            h1.text-2xl.font-md.capitalize(class="sm:text-4xl") how to choose a tokenization solution 
+            p Make sure you're asking the right questions by reading our free ebook now.
+        
+        .buttons-container.text-sm.uppercase.ml-8.mt-8
+            a.mr-2.px-8.py-2.bg-amber(href="#") Request a Demo
+            a.ml-2.px-8.py-2.bg-transparent.border-2.border-solid.border-white(href="#") Contact Us
     
