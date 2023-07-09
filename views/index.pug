@@ -7,14 +7,14 @@ block content
             h3.my-4.text-2xl.capitalize.font-semibold.text-white(class="md:text-4xl") the future of cyber security is here
             .info-container.mt-8.ml-6.border-l.border-solid.border-gray
                 p.text-md.font-thin.pl-8.py-2 Digital transactions don't have to introduce risk, cost, and complexity. With TokenEx, you can reduce PCI scope, increase authorization rotes, and lower interchange fees to make your payments more profitable. 
-                .buttons-container.text-sm.uppercase.ml-8.mt-8
-                    a.mr-2.px-8.py-2.bg-amber(href="#") See More
-                    a.ml-2.px-8.py-2.bg-transparent.border-2.border-solid.border-white(href="#") Download Resources
+                .buttons-container.flex.flex-wrap.text-sm.uppercase.ml-8.mt-8
+                    a.px-8.py-2.bg-amber(href="#") See More
+                    a.mt-4.px-8.py-2.bg-transparent.border-2.border-solid.border-white(class="lg:mt-0" href="#") Download Resources
         .right-container.max-w-lg.ml-4.items-center 
-            .globe.w-100.relative(class="lg:w-135 xl:w-160")
-                img.fill-current.text-gray-500(src="/img/nueral.svg" alt="")
-                .circle.absolute.-z-10.w-full.h-full.top-0
-                    img.fill-current.text-gray-500(src="/img/sphere_pattern.svg" alt="")
+            #globe.w-100.relative(class="lg:w-135 xl:w-160")
+                img#nueral-img(src="/img/nueral.svg" alt="")
+                .circle.absolute.w-full.h-full.top-0
+                    img(src="https://media.tenor.com/clfWf5MC92gAAAAd/spiral-moving.gif" alt="")
             
     
     section#platform.w-screen.py-8.px-0.bg-left(class="md:items-center")
@@ -54,7 +54,8 @@ block content
            h1.my-4.text-2xl.capitalize.font-thin.text-white(class="md:text-4xl xl:text-6xl") Your data. your business
            p.max-w-xs(class="") Build your ideal customer experience with your desired combination of payment platforms and technologies
         div.flex-1.bg-white
-        .box.absolute.z-10.top-60.inset-x-0.mx-auto.bg-black.h-72.w-80(class="md:w-220 md:h-135 xl:w-330")
+        .box.absolute.z-10.top-60.inset-x-0.mx-auto.h-72(class="md:w-220 md:h-135 xl:w-330 w-full h-1/2 overflow-hidden")
+            img.object-fill.object-center.w-full.h-full(class="inset-0 w-full h-full object-cover" src="https://media.tenor.com/clfWf5MC92gAAAAd/spiral-moving.gif" alt="")
 
     
     section#solutions.w-screen.min-h-screen.relative.flex.flex-col.justify-around.items-center.bg-white

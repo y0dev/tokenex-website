@@ -33,6 +33,7 @@ exports.registerMiddleware = (app) => {
             "maps.gstatic.com",
             "*.googleapis.com",
             "*.ggpht.com",
+            "media.tenor.com/clfWf5MC92gAAAAd/spiral-moving.gif",
           ],
           frameSrc: ["'self'", "maps.googleapis.com", "*.google.com"],
         },
