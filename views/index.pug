@@ -55,7 +55,8 @@ block content
            p.max-w-xs(class="") Build your ideal customer experience with your desired combination of payment platforms and technologies
         div.flex-1.bg-white
         .box.absolute.z-10.top-60.inset-x-0.mx-4.w-auto.h-72(class="md:mx-auto md:w-220 md:h-135 xl:w-330 h-1/2 overflow-hidden")
-            img.object-fill.object-center.w-full.h-full(class="inset-0 w-full h-full object-cover" src="https://media.tenor.com/clfWf5MC92gAAAAd/spiral-moving.gif" alt="")
+            canvas.webgl.object-fill.object-center.w-full.h-full(class="webgl")
+            //- img.object-fill.object-center.w-full.h-full(class="inset-0 w-full h-full object-cover" src="https://media.tenor.com/clfWf5MC92gAAAAd/spiral-moving.gif" alt="")
 
     
     section#solutions.w-screen.min-h-screen.relative.flex.flex-col.justify-around.items-center.bg-white
@@ -113,21 +114,21 @@ block content
         div.flex-1.flex.justify-around.my-8
             h1.my-4.text-2xl.capitalize.font-thin.text-white(class="md:text-4xl xl:text-6xl") trusted by global companies
             .button-container.my-4.flex.justify-center.space-x-4
-                button#back-button.flex.items-center.justify-center.w-12.h-12.border.border-white.rounded-md(class="hover:bg-gray-100 transition-colors focus:outline-none")
+                button#back-button.flex.items-center.justify-center.w-12.h-12.border.border-white.rounded-md(class="hover:bg-gray-100 hover:text-black transition-colors focus:outline-none")
                     i.bx.bx-left-arrow-alt
-                button#forward-button.flex.items-center.justify-center.w-12.h-12.border.border-white.rounded-md(class="hover:bg-gray-100 transition-colors focus:outline-none")
+                button#forward-button.flex.items-center.justify-center.w-12.h-12.border.border-white.rounded-md(class="hover:bg-gray-100 hover:text-black transition-colors focus:outline-none")
                     i.bx.bx-right-arrow-alt
         div.flex-1.bg-white
         .testimony-carousel.flex.justify-between.absolute.z-10.top-80.inset-x-0.mx-auto.space-x-12.h-72.w-80(class="md:w-220 md:h-92 xl:w-330")
-            .box.flex.items-center.bg-black
+            .box.flex.flex-col.items-center.bg-black(class='md:flex-row')
                 .img-container.w-80.h-full.bg-white
                     img(src="", alt="")
 
-                .testimony.flex.flex-col.justify-around.py-12.px-20.border-t
+                .testimony.flex.flex-row.justify-around.py-12.px-20.border-t(class="md:flex-col")
                     p.ml-8.my-8.text-white "By controlling our own tokens, it allows us the flexibility to be nimble. We can move to other processors if necessary. We can chase better revenue opportunities." 
                     p.ml-8.text-white Daniel Redhill, Chief Executive Officer
             
-            .box.flex.items-end.bg-black.h-72.w-20(class="md:h-92")
+            .next-box.flex.items-end.bg-black.h-72.w-20(class="md:h-92")
                 .img-container.w-full.h-10.mx-2.mb-2.bg-white
 
     section#contact.w-screen.min-h-screen.relative.flex.flex-col.border-t

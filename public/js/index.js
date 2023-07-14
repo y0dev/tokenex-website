@@ -1,3 +1,5 @@
+const { tick } = require("./modeling");
+
 /* eslint-disable */
 const navbar = document.querySelector("header nav #navbar");
 
@@ -18,3 +20,5 @@ if (navbar) {
     searchForm.classList.remove("scale-y-100");
   };
 }
+
+tick();
