@@ -1,4 +1,5 @@
-const { tick } = require("./modeling");
+const { animateDonut } = require("./animation.donut");
+const { animateWave } = require("./animation.wave");
 
 /* eslint-disable */
 const navbar = document.querySelector("header nav #navbar");
@@ -21,4 +22,6 @@ if (navbar) {
   };
 }
 
-tick();
+// animateDonut();
+
+animateWave();

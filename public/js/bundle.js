@@ -40099,13 +40099,13 @@ var index = {
 };
 var _default = index;
 exports.default = _default;
-},{}],"modeling.js":[function(require,module,exports) {
+},{}],"animation.donut.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.tick = void 0;
+exports.animateDonut = void 0;
 var THREE = _interopRequireWildcard(require("three"));
 var _OrbitControls = require("three/examples/jsm/controls/OrbitControls.js");
 var dat = _interopRequireWildcard(require("dat.gui"));
@@ -40116,11 +40116,11 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 // Debug
 var gui = new dat.GUI();
 
-// Canvas
+// Div
 var div = document.querySelector("#resources div.box");
 
 // Canvas
-var canvas = document.querySelector("canvas.webgl");
+var canvas = document.querySelector("canvas#donut-container");
 
 // Scene
 var scene = new THREE.Scene();
@@ -40129,7 +40129,6 @@ var scene = new THREE.Scene();
 var geometry = new THREE.TorusGeometry(1.0, 0.2, 16, 100);
 
 // Materials
-
 var material = new THREE.PointsMaterial({
   size: 0.005
 });
@@ -40184,7 +40183,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
  */
 
 var clock = new THREE.Clock();
-var tick = function tick() {
+var animateDonut = function animateDonut() {
   var elapsedTime = clock.getElapsedTime();
 
   // Update objects
@@ -40197,12 +40196,204 @@ var tick = function tick() {
   renderer.render(scene, camera);
 
   // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
+  window.requestAnimationFrame(animateDonut);
 };
-exports.tick = tick;
-},{"three":"../../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"../../node_modules/three/examples/jsm/controls/OrbitControls.js","dat.gui":"../../node_modules/dat.gui/build/dat.gui.module.js"}],"index.js":[function(require,module,exports) {
-var _require = require("./modeling"),
-  tick = _require.tick;
+exports.animateDonut = animateDonut;
+},{"three":"../../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"../../node_modules/three/examples/jsm/controls/OrbitControls.js","dat.gui":"../../node_modules/dat.gui/build/dat.gui.module.js"}],"../img/circle.png":[function(require,module,exports) {
+module.exports = "/circle.be40f17b.png";
+},{}],"animation.wave.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.animateWave = animateWave;
+var THREE = _interopRequireWildcard(require("three"));
+var _OrbitControls = require("three/examples/jsm/controls/OrbitControls.js");
+var _circle = _interopRequireDefault(require("../img/circle.png"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var f = 0.002;
+var t = 0;
+var a = 3;
+function graph(x, z) {
+  return Math.sin(f * (Math.pow(x, 2) + Math.pow(z, 2) + t)) * a;
+}
+
+// Div
+// const div = document.querySelector("#resources div.box");
+
+// Canvas
+var canvas = document.querySelector("canvas#wave-container");
+
+/**
+ * Sizes
+ */
+var sizes = {
+  width: canvas.offsetWidth,
+  height: canvas.offsetHeight
+};
+
+// Scene
+var scene = new THREE.Scene();
+var count = 100;
+var sep = 3;
+var positions = [];
+for (var xi = 0; xi < count; xi++) {
+  for (var zi = 0; zi < count; zi++) {
+    var x = sep * (xi - count / 2);
+    var z = sep * (zi - count / 2);
+    var y = 0; //graph(x, z);
+    positions.push(x, y, z);
+  }
+}
+var vertices = new Float32Array(positions);
+
+// Attribute
+var attribute = new THREE.BufferAttribute(vertices, 3);
+attribute.count = positions.length / 3;
+
+// Objects
+var geometry = new THREE.BufferGeometry({});
+geometry.setAttribute("position", attribute);
+
+// Text Loader
+var circleTexture = new THREE.TextureLoader().load("../img/circle.png");
+circleTexture.minFilter = THREE.LinearFilter;
+circleTexture.magFilter = THREE.LinearFilter;
+var material = new THREE.PointsMaterial({
+  map: circleTexture,
+  color: 0x00aaff,
+  size: 1,
+  transparent: false,
+  alphaTest: 0.5,
+  opacity: 1
+});
+
+// Mesh
+var sphere = new THREE.Points(geometry, material);
+scene.add(sphere);
+
+// Base camera
+var camera = new THREE.PerspectiveCamera();
+camera.fov = 75;
+camera.position.x = 100;
+camera.position.y = 20;
+camera.position.z = 0;
+scene.add(camera);
+
+// Controls
+var controls = new _OrbitControls.OrbitControls(camera, canvas);
+controls.enableDamping = true;
+
+/**
+ * Renderer
+ */
+var renderer = new THREE.WebGLRenderer({
+  canvas: canvas
+});
+renderer.setSize(sizes.width, sizes.height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+/**
+ * Animate
+ */
+
+var clock = new THREE.Clock();
+function animateWave() {
+  var elapsedTime = clock.getElapsedTime();
+  t += 15;
+  // a += 0.1;
+  var i = 0;
+  for (var _xi = 0; _xi < count; _xi++) {
+    for (var _zi = 0; _zi < count; _zi++) {
+      var _x = sep * (_xi - count / 2);
+      var _z = sep * (_zi - count / 2);
+      vertices[i + 1] = graph(_x, _z);
+      i += 3;
+    }
+  }
+  // Update the buffer attribute
+  attribute.needsUpdate = true;
+
+  // Render
+  renderer.render(scene, camera);
+
+  // Call tick again on the next frame
+  window.requestAnimationFrame(animateWave);
+
+  // Update Orbital Controls
+  controls.update();
+}
+
+// function createTweenScrubber(tween, seekSpeed) {
+//   seekSpeed = seekSpeed || 0.001;
+
+//   function stop() {
+//     TweenMax.to(tween, 2, { timeScale: 0 });
+//   }
+
+//   function resume() {
+//     TweenMax.to(tween, 2, { timeScale: 1 });
+//   }
+
+//   function seek(dx) {
+//     var progress = tween.progress();
+//     var p = THREE.Math.clamp(progress + dx * seekSpeed, 0, 1);
+
+//     tween.progress(p);
+//   }
+
+//   var _cx = 0;
+
+//   // desktop
+//   var mouseDown = false;
+//   document.body.style.cursor = "pointer";
+
+//   window.addEventListener("mousedown", function (e) {
+//     mouseDown = true;
+//     document.body.style.cursor = "ew-resize";
+//     _cx = e.clientX;
+//     stop();
+//   });
+//   window.addEventListener("mouseup", function (e) {
+//     mouseDown = false;
+//     document.body.style.cursor = "pointer";
+//     resume();
+//   });
+//   window.addEventListener("mousemove", function (e) {
+//     if (mouseDown === true) {
+//       var cx = e.clientX;
+//       var dx = cx - _cx;
+//       _cx = cx;
+
+//       seek(dx);
+//     }
+//   });
+//   // mobile
+//   window.addEventListener("touchstart", function (e) {
+//     _cx = e.touches[0].clientX;
+//     stop();
+//     e.preventDefault();
+//   });
+//   window.addEventListener("touchend", function (e) {
+//     resume();
+//     e.preventDefault();
+//   });
+//   window.addEventListener("touchmove", function (e) {
+//     var cx = e.touches[0].clientX;
+//     var dx = cx - _cx;
+//     _cx = cx;
+
+//     seek(dx);
+//     e.preventDefault();
+//   });
+// }
+},{"three":"../../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"../../node_modules/three/examples/jsm/controls/OrbitControls.js","../img/circle.png":"../img/circle.png"}],"index.js":[function(require,module,exports) {
+var _require = require("./animation.donut"),
+  animateDonut = _require.animateDonut;
+var _require2 = require("./animation.wave"),
+  animateWave = _require2.animateWave;
 
 /* eslint-disable */
 var navbar = document.querySelector("header nav #navbar");
@@ -40221,8 +40412,11 @@ if (navbar) {
     searchForm.classList.remove("scale-y-100");
   };
 }
-tick();
-},{"./modeling":"modeling.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+// animateDonut();
+
+animateWave();
+},{"./animation.donut":"animation.donut.js","./animation.wave":"animation.wave.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -40247,7 +40441,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56171" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49726" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

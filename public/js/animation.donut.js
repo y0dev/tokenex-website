@@ -6,11 +6,11 @@ import * as dat from "dat.gui";
 // Debug
 const gui = new dat.GUI();
 
-// Canvas
+// Div
 const div = document.querySelector("#resources div.box");
 
 // Canvas
-const canvas = document.querySelector("canvas.webgl");
+const canvas = document.querySelector("canvas#donut-container");
 
 // Scene
 const scene = new THREE.Scene();
@@ -19,7 +19,6 @@ const scene = new THREE.Scene();
 const geometry = new THREE.TorusGeometry(1.0, 0.2, 16, 100);
 
 // Materials
-
 const material = new THREE.PointsMaterial({
   size: 0.005,
 });
@@ -80,7 +79,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const clock = new THREE.Clock();
 
-export const tick = () => {
+export const animateDonut = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // Update objects
@@ -93,5 +92,5 @@ export const tick = () => {
   renderer.render(scene, camera);
 
   // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
+  window.requestAnimationFrame(animateDonut);
 };
