@@ -38,6 +38,7 @@ module.exports = {
         800: "#293041",
         900: "#0f172a",
       },
+      "blue-gray": "#696A91",
       zinc: colors.zinc,
       neutral: colors.neutral,
       stone: colors.stone,
@@ -48,6 +49,7 @@ module.exports = {
       yellow: colors.yellow,
       lime: colors.lime,
       green: colors.green,
+      "kombu-green": "#2D4D35",
       emerald: colors.emerald,
       caribbean: "#12CC87",
       teal: colors.teal,
@@ -61,6 +63,7 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      tan: "#90845A",
     }),
     columns: {
       auto: "auto",
