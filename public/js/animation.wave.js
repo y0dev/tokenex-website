@@ -87,10 +87,10 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setClearColor(0x202124);
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
 /**
  * Animate
  */
-
 const clock = new THREE.Clock();
 
 export function animateWave() {
@@ -114,6 +114,13 @@ export function animateWave() {
 
   // Call tick again on the next frame
   window.requestAnimationFrame(animateWave);
+}
+
+export function onWindowResizeForWave() {
+  // camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(sizes.width, sizes.height);
 }
 
 // function createTweenScrubber(tween, seekSpeed) {

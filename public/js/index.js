@@ -1,5 +1,9 @@
 const { animateDonut } = require("./animation.donut");
-const { animateWave } = require("./animation.wave");
+const {
+  animateSphere,
+  onWindowResizeForSphere,
+} = require("./animation.sphere");
+const { animateWave, onWindowResizeForWave } = require("./animation.wave");
 
 /* eslint-disable */
 const navbar = document.querySelector("header nav #navbar");
@@ -25,3 +29,7 @@ if (navbar) {
 // animateDonut();
 
 animateWave();
+window.addEventListener("resize", onWindowResizeForWave);
+
+animateSphere();
+window.addEventListener("resize", onWindowResizeForSphere);
