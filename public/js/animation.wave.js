@@ -13,7 +13,7 @@ function graph(x, z) {
 // const div = document.querySelector("#resources div.box");
 
 // Canvas
-const canvas = document.querySelector("canvas#wave-container");
+const canvas = document.querySelector("canvas#wave");
 
 /**
  * Sizes
@@ -26,8 +26,8 @@ const sizes = {
 // Scene
 const scene = new THREE.Scene();
 
-const count = 100;
-const sep = 3;
+const count = 75;
+const sep = 2.5;
 
 const positions = [];
 for (let xi = 0; xi < count; xi++) {
@@ -55,7 +55,7 @@ circleTexture.magFilter = THREE.LinearFilter;
 
 const material = new THREE.PointsMaterial({
   map: circleTexture,
-  color: 0x00aaff,
+  color: 0xffffff,
   size: 1,
   transparent: false,
   alphaTest: 0.5,
@@ -69,14 +69,14 @@ scene.add(sphere);
 // Base camera
 const camera = new THREE.PerspectiveCamera();
 camera.fov = 75;
-camera.position.x = 100;
-camera.position.y = 20;
-camera.position.z = 0;
+camera.position.x = 10;
+camera.position.y = 30;
+camera.position.z = 140;
 scene.add(camera);
 
 // Controls
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
+// const controls = new OrbitControls(camera, canvas);
+// controls.enableDamping = true;
 
 /**
  * Renderer
@@ -84,6 +84,7 @@ controls.enableDamping = true;
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
 });
+renderer.setClearColor(0x202124);
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 /**
@@ -113,9 +114,6 @@ export function animateWave() {
 
   // Call tick again on the next frame
   window.requestAnimationFrame(animateWave);
-
-  // Update Orbital Controls
-  controls.update();
 }
 
 // function createTweenScrubber(tween, seekSpeed) {

@@ -40225,7 +40225,7 @@ function graph(x, z) {
 // const div = document.querySelector("#resources div.box");
 
 // Canvas
-var canvas = document.querySelector("canvas#wave-container");
+var canvas = document.querySelector("canvas#wave");
 
 /**
  * Sizes
@@ -40237,8 +40237,8 @@ var sizes = {
 
 // Scene
 var scene = new THREE.Scene();
-var count = 100;
-var sep = 3;
+var count = 75;
+var sep = 2.5;
 var positions = [];
 for (var xi = 0; xi < count; xi++) {
   for (var zi = 0; zi < count; zi++) {
@@ -40264,7 +40264,7 @@ circleTexture.minFilter = THREE.LinearFilter;
 circleTexture.magFilter = THREE.LinearFilter;
 var material = new THREE.PointsMaterial({
   map: circleTexture,
-  color: 0x00aaff,
+  color: 0xffffff,
   size: 1,
   transparent: false,
   alphaTest: 0.5,
@@ -40278,14 +40278,14 @@ scene.add(sphere);
 // Base camera
 var camera = new THREE.PerspectiveCamera();
 camera.fov = 75;
-camera.position.x = 100;
-camera.position.y = 20;
-camera.position.z = 0;
+camera.position.x = 10;
+camera.position.y = 30;
+camera.position.z = 140;
 scene.add(camera);
 
 // Controls
-var controls = new _OrbitControls.OrbitControls(camera, canvas);
-controls.enableDamping = true;
+// const controls = new OrbitControls(camera, canvas);
+// controls.enableDamping = true;
 
 /**
  * Renderer
@@ -40293,6 +40293,7 @@ controls.enableDamping = true;
 var renderer = new THREE.WebGLRenderer({
   canvas: canvas
 });
+renderer.setClearColor(0x202124);
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 /**
@@ -40321,9 +40322,6 @@ function animateWave() {
 
   // Call tick again on the next frame
   window.requestAnimationFrame(animateWave);
-
-  // Update Orbital Controls
-  controls.update();
 }
 
 // function createTweenScrubber(tween, seekSpeed) {
@@ -40441,7 +40439,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49726" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56445" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
