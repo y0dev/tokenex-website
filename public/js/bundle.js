@@ -37715,7 +37715,99 @@ var OrbitControls = /*#__PURE__*/function (_EventDispatcher) {
   return _createClass(OrbitControls);
 }(_three.EventDispatcher);
 exports.OrbitControls = OrbitControls;
-},{"three":"../../node_modules/three/build/three.module.js"}],"animation.sphere.js":[function(require,module,exports) {
+},{"three":"../../node_modules/three/build/three.module.js"}],"animation.pcb.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.animatePCB = animatePCB;
+exports.onWindowResizeForPCB = onWindowResizeForPCB;
+var THREE = _interopRequireWildcard(require("three"));
+var _OrbitControls = require("three/examples/jsm/controls/OrbitControls.js");
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+// Canvas
+var canvas1 = document.querySelector(".image canvas#pcb");
+
+/**
+ * Sizes
+ */
+var sizes = {
+  width1: canvas1.offsetWidth,
+  height1: canvas1.offsetHeight
+};
+
+// Scene
+var scene = new THREE.Scene();
+
+// Create a circular path for the PCB board outline
+var radius = 50; // Specify the radius of the PCB board
+var segments = 100; // Specify the number of segments to create a smooth circular shape
+var path = new THREE.Path();
+path.absarc(0, 0, radius, 0, Math.PI * 2, false);
+
+// Define the extrusion settings for the PCB board outline
+var extrusionSettings = {
+  depth: 1,
+  // Specify the thickness of the PCB board
+  bevelEnabled: false // Disable bevel for a simple outline
+};
+
+// // Create the geometry by extruding the circular path
+// const geometry = new THREE.ExtrudeGeometry(path, extrusionSettings);
+
+// // Create a material for the PCB board
+// const material = new THREE.MeshBasicMaterial({ color: 0x555555 });
+
+// // Create the mesh using the geometry and material
+// const pcbBoard = new THREE.Mesh(geometry, material);
+
+// // Add the PCB board mesh to the scene
+// scene.add(pcbBoard);
+
+// Base camera
+var camera = new THREE.PerspectiveCamera();
+camera.fov = 75;
+camera.position.z = 15;
+scene.add(camera);
+
+/**
+ * Renderer
+ */
+var renderer1 = new THREE.WebGLRenderer({
+  canvas: canvas1
+});
+// renderer.setClearColor(0x202124);
+renderer1.setSize(sizes.width1, sizes.height1);
+renderer1.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+// Controls
+// const controls = new OrbitControls(camera, canvas);
+// controls.enableDamping = true;
+
+/**
+ * Animate
+ */
+var clock = new THREE.Clock();
+function animatePCB() {
+  var elapsedTime = clock.getElapsedTime();
+
+  // Render
+  renderer1.render(scene, camera);
+
+  // Update Orbital Controls
+  //   controls.update();
+
+  // Call tick again on the next frame
+  window.requestAnimationFrame(animatePCB);
+}
+function onWindowResizeForPCB() {
+  // camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer1.setSize(sizes.width1, sizes.height1);
+}
+},{"three":"../../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"../../node_modules/three/examples/jsm/controls/OrbitControls.js"}],"animation.sphere.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37849,7 +37941,8 @@ function animateSphere() {
 function onWindowResizeForSphere() {
   // camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(sizes.width, sizes.height);
+  renderer1.setSize(sizes.width1, sizes.height1);
+  renderer2.setSize(sizes.width2, sizes.height2);
 }
 },{"three":"../../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"../../node_modules/three/examples/jsm/controls/OrbitControls.js"}],"../img/circle.png":[function(require,module,exports) {
 module.exports = "/circle.be40f17b.png";
@@ -38048,12 +38141,15 @@ function onWindowResizeForWave() {
 },{"three":"../../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"../../node_modules/three/examples/jsm/controls/OrbitControls.js","../img/circle.png":"../img/circle.png"}],"index.js":[function(require,module,exports) {
 var _require = require("./animation.donut"),
   animateDonut = _require.animateDonut;
-var _require2 = require("./animation.sphere"),
-  animateSphere = _require2.animateSphere,
-  onWindowResizeForSphere = _require2.onWindowResizeForSphere;
-var _require3 = require("./animation.wave"),
-  animateWave = _require3.animateWave,
-  onWindowResizeForWave = _require3.onWindowResizeForWave;
+var _require2 = require("./animation.pcb"),
+  animatePCB = _require2.animatePCB,
+  onWindowResizeForPCB = _require2.onWindowResizeForPCB;
+var _require3 = require("./animation.sphere"),
+  animateSphere = _require3.animateSphere,
+  onWindowResizeForSphere = _require3.onWindowResizeForSphere;
+var _require4 = require("./animation.wave"),
+  animateWave = _require4.animateWave,
+  onWindowResizeForWave = _require4.onWindowResizeForWave;
 
 /* eslint-disable */
 var navbar = document.querySelector("header nav #navbar");
@@ -38079,7 +38175,9 @@ animateWave();
 window.addEventListener("resize", onWindowResizeForWave);
 animateSphere();
 window.addEventListener("resize", onWindowResizeForSphere);
-},{"./animation.donut":"animation.donut.js","./animation.sphere":"animation.sphere.js","./animation.wave":"animation.wave.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+animatePCB();
+window.addEventListener("resize", onWindowResizeForPCB);
+},{"./animation.donut":"animation.donut.js","./animation.pcb":"animation.pcb.js","./animation.sphere":"animation.sphere.js","./animation.wave":"animation.wave.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -38104,7 +38202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56445" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62858" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -1,4 +1,5 @@
 const { animateDonut } = require("./animation.donut");
+const { animatePCB, onWindowResizeForPCB } = require("./animation.pcb");
 const {
   animateSphere,
   onWindowResizeForSphere,
@@ -33,3 +34,6 @@ window.addEventListener("resize", onWindowResizeForWave);
 
 animateSphere();
 window.addEventListener("resize", onWindowResizeForSphere);
+
+animatePCB();
+window.addEventListener("resize", onWindowResizeForPCB);

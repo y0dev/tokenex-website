@@ -128,5 +128,6 @@ export function onWindowResizeForSphere() {
   // camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(sizes.width, sizes.height);
+  renderer1.setSize(sizes.width1, sizes.height1);
+  renderer2.setSize(sizes.width2, sizes.height2);
 }
