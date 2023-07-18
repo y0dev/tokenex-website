@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import circle from "../img/circle.png";
 
 let f = 0.002;
 let t = 0;
