@@ -193,6 +193,7 @@ module.exports = {
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
+      "circle-grow": "circleAnimation 4s infinite alternate",
     },
     aspectRatio: {
       auto: "auto",
@@ -679,6 +680,20 @@ module.exports = {
         "50%": {
           transform: "none",
           animationTimingFunction: "cubic-bezier(0,0,0.2,1)",
+        },
+      },
+      circleAnimation: {
+        "0%": {
+          transform: "scale(0)",
+          opacity: "0",
+          height: "25%",
+          width: "25%",
+        },
+        "100%": {
+          transform: "scale(1)",
+          opacity: "1",
+          height: "75%",
+          width: "75%",
         },
       },
     },

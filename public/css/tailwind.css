@@ -18,24 +18,29 @@
   }
 }
 
-@keyframes circleAnimation {
+/* @keyframes circleAnimation {
   0% {
     opacity: 0;
+    height: 25%;
+    width: 25%;
     transform: scale(0);
   }
   100% {
     opacity: 1;
+    height: 75%;
+    width: 75%;
     transform: scale(1);
   }
-}
+} */
+
 
 #nueral-img {
   animation: dissolveAnimation 4s infinite alternate;
 }
 
-.circle img {
+/* .circle {
   animation: circleAnimation 4s infinite alternate;
-}
+} */
 
 
 /* Card Flip Animation */

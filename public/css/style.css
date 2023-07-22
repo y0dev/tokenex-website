@@ -537,6 +537,9 @@ video {
 .left-0 {
   left: 0px;
 }
+.left-1\/4 {
+  left: 25%;
+}
 .right-0 {
   right: 0px;
 }
@@ -545,6 +548,9 @@ video {
 }
 .top-0 {
   top: 0px;
+}
+.top-1\/4 {
+  top: 25%;
 }
 .top-23\/20 {
   top: 115%;
@@ -665,6 +671,9 @@ video {
 .h-1\/2 {
   height: 50%;
 }
+.h-1\/4 {
+  height: 25%;
+}
 .h-10 {
   height: 2.5rem;
 }
@@ -688,6 +697,9 @@ video {
 }
 .min-h-screen {
   min-height: 100vh;
+}
+.w-1\/4 {
+  width: 25%;
 }
 .w-100 {
   width: 25rem;
@@ -737,6 +749,14 @@ video {
 .origin-top {
   transform-origin: top;
 }
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .scale-y-0 {
   --tw-scale-y: 0;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -747,6 +767,25 @@ video {
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+@keyframes circleAnimation {
+
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    height: 25%;
+    width: 25%;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    height: 75%;
+    width: 75%;
+  }
+}
+.animate-circle-grow {
+  animation: circleAnimation 4s infinite alternate;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -806,6 +845,9 @@ video {
 }
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+.rounded-full {
+  border-radius: 9999px;
 }
 .rounded-lg {
   border-radius: 0.5rem;
@@ -1102,24 +1144,29 @@ video {
   }
 }
 
-@keyframes circleAnimation {
+/* @keyframes circleAnimation {
   0% {
     opacity: 0;
+    height: 25%;
+    width: 25%;
     transform: scale(0);
   }
   100% {
     opacity: 1;
+    height: 75%;
+    width: 75%;
     transform: scale(1);
   }
-}
+} */
+
 
 #nueral-img {
   animation: dissolveAnimation 4s infinite alternate;
 }
 
-.circle img {
+/* .circle {
   animation: circleAnimation 4s infinite alternate;
-}
+} */
 
 
 /* Card Flip Animation */
